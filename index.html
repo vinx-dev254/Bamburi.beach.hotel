@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bamburi Beach Resort — Menus</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream: #F3E8D6;
+    --cream-2: #ECDDC4;
+    --ink: #2B2118;
+    --ink-soft: #5B4E3F;
+    --terracotta: #C25E0B;
+    --terracotta-deep: #9C4A08;
+    --teal: #163A3D;
+    --gold: #B8934A;
+  }
+
+  *{ box-sizing: border-box; }
+
+  html{ scroll-behavior: smooth; }
+
+  body{
+    margin: 0;
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Work Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* subtle paper texture via layered radial gradients */
+  body::before{
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(circle at 15% 20%, rgba(194,94,11,0.05), transparent 40%),
+      radial-gradient(circle at 85% 80%, rgba(22,58,61,0.06), transparent 45%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  main{
+    width: 100%;
+    max-width: 560px;
+    padding: 56px 24px 40px;
+    position: relative;
+    z-index: 1;
+    animation: rise 0.7s ease both;
+  }
+
+  @keyframes rise{
+    from{ opacity: 0; transform: translateY(10px); }
+    to{ opacity: 1; transform: translateY(0); }
+  }
+
+  header{
+    text-align: center;
+    margin-bottom: 8px;
+  }
+
+  .logo-frame{
+    width: 108px;
+    height: 108px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    background: #F8F5EE;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 10px rgba(43,33,24,0.08);
+    overflow: hidden;
+  }
+
+  .logo{
+    width: 78%;
+    height: auto;
+    display: block;
+    mix-blend-mode: multiply;
+  }
+
+  h1{
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: clamp(34px, 8vw, 46px);
+    line-height: 1.05;
+    margin: 0 0 10px;
+    color: var(--ink);
+  }
+
+  .tagline{
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 18px;
+    color: var(--ink-soft);
+    margin: 0 0 28px;
+  }
+
+  .wave{
+    display: block;
+    width: 120px;
+    height: auto;
+    margin: 0 auto 36px;
+    color: var(--gold);
+  }
+
+  .menu-list{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .menu-card{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    background: var(--cream-2);
+    border: 1px solid rgba(43,33,24,0.09);
+    border-radius: 14px;
+    padding: 22px 22px;
+    text-decoration: none;
+    color: var(--ink);
+    transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+    box-shadow: 0 1px 2px rgba(43,33,24,0.04);
+  }
+
+  .menu-card:hover, .menu-card:focus-visible{
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(43,33,24,0.12);
+    background: #F7EEDC;
+  }
+
+  .menu-card:focus-visible{
+    outline: 2px solid var(--terracotta);
+    outline-offset: 2px;
+  }
+
+  .menu-card:active{
+    transform: translateY(0px);
+  }
+
+  .card-text{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .card-title{
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 21px;
+    color: var(--ink);
+  }
+
+  .card-desc{
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    line-height: 1.4;
+  }
+
+  .arrow{
+    flex-shrink: 0;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: var(--terracotta);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--cream);
+    transition: background 0.18s ease, transform 0.18s ease;
+  }
+
+  .menu-card:hover .arrow{
+    background: var(--terracotta-deep);
+    transform: translateX(2px);
+  }
+
+  .arrow svg{ width: 16px; height: 16px; }
+
+  footer{
+    margin-top: 40px;
+    text-align: center;
+  }
+
+  .location{
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    letter-spacing: 0.04em;
+  }
+
+  .divider{
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+    opacity: 0.6;
+    margin: 22px auto;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    main{ animation: none; }
+    .menu-card{ transition: none; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <div class="logo-frame">
+      <img class="logo" src="bamburi_logo.png" alt="Bamburi Beach Hotel">
+    </div>
+    <h1>Waves | Sand | Serenity</h1>
+    <p class="tagline">Mombasa's coastline, on a plate.</p>
+  </header>
+
+  <svg class="wave" viewBox="0 0 120 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M2 12C12 2, 22 2, 32 12C42 22, 52 22, 62 12C72 2, 82 2, 92 12C102 22, 112 22, 118 14"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+  </svg>
+
+  <ul class="menu-list">
+    <li>
+      <a class="menu-card" href="Bamburi_All_Inclusive_and_Exclusive_Drinks.pdf">
+        <span class="card-text">
+          <span class="card-title">Drinks</span>
+          <span class="card-desc">All Inclusive &amp; Exclusive — cocktails, spirits, wine, champagne</span>
+        </span>
+        <span class="arrow" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </span>
+      </a>
+    </li>
+    <li>
+      <a class="menu-card" href="Bamburi_A_La_Carte_Menu.pdf">
+        <span class="card-text">
+          <span class="card-title">À La Carte</span>
+          <span class="card-desc">Soups, mains, pasta, pizza &amp; fresh seafood</span>
+        </span>
+        <span class="arrow" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </span>
+      </a>
+    </li>
+    <li>
+      <a class="menu-card" href="Bamburi_Signature_Experiences.pdf">
+        <span class="card-text">
+          <span class="card-title">Signature Experiences</span>
+          <span class="card-desc">Floating breakfast, private dinners &amp; day packages</span>
+        </span>
+        <span class="arrow" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </span>
+      </a>
+    </li>
+  </ul>
+
+  <footer>
+    <div class="divider"></div>
+    <p class="location">Bamburi Beach &nbsp;·&nbsp; Mombasa &nbsp;·&nbsp; Kenya</p>
+  </footer>
+</main>
+</body>
+</html>
