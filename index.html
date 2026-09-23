@@ -3,54 +3,59 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bamburi Beach Resort — Menus</title>
+<title>Bamburi Beach Hotel — Menus</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,600&family=Alex+Brush&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --cream: #F3E8D6;
-    --cream-2: #ECDDC4;
-    --ink: #2B2118;
-    --ink-soft: #5B4E3F;
-    --terracotta: #C25E0B;
-    --terracotta-deep: #9C4A08;
-    --teal: #163A3D;
-    --gold: #B8934A;
+    --sky-top: #cdeafb;
+    --sky-mid: #bfe4f8;
+    --sea: #4fa8d8;
+    --sea-deep: #1f78ae;
+    --navy: #0d3f66;
+    --navy-2: #14507f;
+    --ink-soft: #4c7391;
+    --card: #eef8fd;
+    --card-border: rgba(13,63,102,0.08);
+    --btn: #2f8fd1;
+    --btn-deep: #1f78ae;
   }
 
   *{ box-sizing: border-box; }
-
   html{ scroll-behavior: smooth; }
 
   body{
     margin: 0;
-    background: var(--cream);
-    color: var(--ink);
+    background: linear-gradient(180deg, var(--sky-top) 0%, var(--sky-mid) 38%, #a9d7ef 70%, #7cc0e6 100%);
+    color: var(--navy);
     font-family: 'Work Sans', sans-serif;
     -webkit-font-smoothing: antialiased;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow-x: hidden;
   }
 
-  /* subtle paper texture via layered radial gradients */
-  body::before{
+  /* soft palm-frond silhouettes in the corners */
+  body::before, body::after{
     content: "";
     position: fixed;
-    inset: 0;
-    background:
-      radial-gradient(circle at 15% 20%, rgba(194,94,11,0.05), transparent 40%),
-      radial-gradient(circle at 85% 80%, rgba(22,58,61,0.06), transparent 45%);
+    width: 220px;
+    height: 220px;
+    background: repeating-conic-gradient(from 200deg at 0% 0%, rgba(13,63,102,0.10) 0deg 4deg, transparent 4deg 18deg);
+    clip-path: polygon(0 0, 100% 0, 0 100%);
     pointer-events: none;
     z-index: 0;
   }
+  body::before{ top: 0; left: 0; }
+  body::after{ bottom: 0; right: 0; transform: rotate(180deg); opacity: 0.7; }
 
   main{
     width: 100%;
     max-width: 560px;
-    padding: 56px 24px 40px;
+    padding: 48px 22px 0;
     position: relative;
     z-index: 1;
     animation: rise 0.7s ease both;
@@ -61,10 +66,7 @@
     to{ opacity: 1; transform: translateY(0); }
   }
 
-  header{
-    text-align: center;
-    margin-bottom: 8px;
-  }
+  header{ text-align: center; margin-bottom: 4px; }
 
   .logo-frame{
     width: 108px;
@@ -87,29 +89,38 @@
   }
 
   h1{
-    font-family: 'Fraunces', serif;
-    font-weight: 600;
-    font-size: clamp(34px, 8vw, 46px);
-    line-height: 1.05;
-    margin: 0 0 10px;
-    color: var(--ink);
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: clamp(34px, 8.5vw, 46px);
+    line-height: 1.08;
+    margin: 0 0 4px;
+    color: var(--navy);
+  }
+
+  .serenity{
+    display: block;
+    font-family: 'Alex Brush', cursive;
+    font-size: clamp(48px, 13vw, 72px);
+    line-height: 1;
+    color: var(--btn);
+    margin-top: 2px;
   }
 
   .tagline{
-    font-family: 'Fraunces', serif;
+    font-family: 'Playfair Display', serif;
     font-style: italic;
     font-weight: 500;
     font-size: 18px;
-    color: var(--ink-soft);
-    margin: 0 0 28px;
+    color: var(--navy-2);
+    margin: 14px 0 22px;
   }
 
   .wave{
     display: block;
     width: 120px;
     height: auto;
-    margin: 0 auto 36px;
-    color: var(--gold);
+    margin: 0 auto 30px;
+    color: var(--sea-deep);
   }
 
   .menu-list{
@@ -124,89 +135,85 @@
   .menu-card{
     display: flex;
     align-items: center;
-    justify-content: space-between;
     gap: 16px;
-    background: var(--cream-2);
-    border: 1px solid rgba(43,33,24,0.09);
-    border-radius: 14px;
-    padding: 22px 22px;
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 20px 10px 20px 22px;
     text-decoration: none;
-    color: var(--ink);
+    color: var(--navy);
     transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
-    box-shadow: 0 1px 2px rgba(43,33,24,0.04);
+    box-shadow: 0 4px 14px rgba(13,63,102,0.07);
   }
 
   .menu-card:hover, .menu-card:focus-visible{
     transform: translateY(-2px);
-    box-shadow: 0 10px 24px rgba(43,33,24,0.12);
-    background: #F7EEDC;
+    box-shadow: 0 12px 26px rgba(13,63,102,0.16);
+    background: #ffffff;
   }
+  .menu-card:focus-visible{ outline: 2px solid var(--btn); outline-offset: 2px; }
+  .menu-card:active{ transform: translateY(0); }
 
-  .menu-card:focus-visible{
-    outline: 2px solid var(--terracotta);
-    outline-offset: 2px;
-  }
-
-  .menu-card:active{
-    transform: translateY(0px);
-  }
-
-  .card-text{
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-  }
+  .card-text{ flex: 1; display: flex; flex-direction: column; gap: 3px; min-width: 0; }
 
   .card-title{
-    font-family: 'Fraunces', serif;
-    font-weight: 600;
-    font-size: 21px;
-    color: var(--ink);
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 19px;
+    color: var(--navy);
   }
 
   .card-desc{
-    font-size: 13.5px;
+    font-size: 12.5px;
     color: var(--ink-soft);
-    line-height: 1.4;
+    line-height: 1.35;
   }
 
   .arrow{
     flex-shrink: 0;
-    width: 34px;
-    height: 34px;
+    width: 36px;
+    height: 36px;
+    margin-right: 6px;
     border-radius: 50%;
-    background: var(--terracotta);
+    background: var(--btn);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--cream);
+    color: #fff;
     transition: background 0.18s ease, transform 0.18s ease;
   }
-
-  .menu-card:hover .arrow{
-    background: var(--terracotta-deep);
-    transform: translateX(2px);
-  }
-
+  .menu-card:hover .arrow{ background: var(--btn-deep); transform: translateX(2px); }
   .arrow svg{ width: 16px; height: 16px; }
 
-  footer{
-    margin-top: 40px;
-    text-align: center;
+  footer{ margin-top: 34px; text-align: center; padding-bottom: 30px; }
+
+  .divider-row{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 0 0 18px;
   }
+  .divider-row .line{ width: 44px; height: 1px; background: var(--sea-deep); opacity: 0.5; }
+  .divider-row svg{ width: 26px; height: 12px; color: var(--sea-deep); }
 
   .location{
-    font-size: 12.5px;
-    color: var(--ink-soft);
-    letter-spacing: 0.04em;
+    font-size: 13px;
+    color: var(--navy-2);
+    letter-spacing: 0.02em;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin: 0;
   }
+  .location svg{ width: 13px; height: 13px; }
 
-  .divider{
-    width: 40px;
-    height: 1px;
-    background: var(--gold);
-    opacity: 0.6;
-    margin: 22px auto;
+  .surf{
+    width: 100%;
+    height: 70px;
+    margin-top: 8px;
+    display: block;
+    color: #eaf6fc;
   }
 
   @media (prefers-reduced-motion: reduce){
@@ -221,7 +228,7 @@
     <div class="logo-frame">
       <img class="logo" src="bamburi_logo.png" alt="Bamburi Beach Hotel">
     </div>
-    <h1>Waves | Sand | Serenity</h1>
+    <h1>Waves | Sand |<span class="serenity">Serenity</span></h1>
     <p class="tagline">Mombasa's coastline, on a plate.</p>
   </header>
 
@@ -289,9 +296,20 @@
   </ul>
 
   <footer>
-    <div class="divider"></div>
-    <p class="location">Bamburi Beach &nbsp;·&nbsp; Mombasa &nbsp;·&nbsp; Kenya</p>
+    <div class="divider-row">
+      <span class="line"></span>
+      <svg viewBox="0 0 24 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M1 6c2-4 4-4 6 0s4 4 6 0 4-4 6 0 4 4 4 0" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      <span class="line"></span>
+    </div>
+    <p class="location">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C7.6 2 4 5.6 4 10c0 6 8 12 8 12s8-6 8-12c0-4.4-3.6-8-8-8Zm0 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"/></svg>
+      Bamburi Beach &nbsp;·&nbsp; Mombasa &nbsp;·&nbsp; Kenya
+    </p>
   </footer>
+
+  <svg class="surf" viewBox="0 0 500 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M0 30 C 80 10, 150 50, 250 30 S 420 10, 500 30 L500 60 L0 60 Z" fill="currentColor"/>
+  </svg>
 </main>
 </body>
 </html>
